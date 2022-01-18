@@ -13,14 +13,14 @@
 }
 
 
-/*navbar style*/
+/*navbar style start*/
 
 .navbar {
     position: fixed;
     width: 100%;
     height: 45px;
-    padding: 0 15px;
-    background: rgb(44, 189, 238);
+    padding: 30px 15px;
+    /* background: rgb(44, 189, 238); */
     font-family: 'Ubuntu', 'sans-serif';
 }
 
@@ -28,6 +28,10 @@
     font-size: 35px;
     color: white;
     font-weight: 600;
+}
+
+.navbar .logo a span {
+    color: rgb(44, 189, 238);
 }
 
 .navbar .max-width {
@@ -48,4 +52,46 @@
     font-weight: 500;
     margin: 25px;
     padding: 0;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar .menu li a:hover {
+    color: rgb(44, 189, 238);
+}
+
+
+/* home section styling start */
+
+.home {
+    display: flex;
+    background-color: black;
+    /* will add my image */
+    height: 100vh;
+    color: white;
+    min-height: 500px;
+    font-family: 'Ubuntu', 'sans-serif';
+}
+
+.home .max-width {
+    margin: auto 0 auto 40px;
+}
+
+.home .home-content .text-1 {
+    font-size: 27px;
+}
+
+.home .home-content .text-2 {
+    font-size: 75px;
+    font-weight: 600;
+    margin-left: -3px;
+}
+
+.home .home-content .text-3 {
+    font-size: 40px;
+    margin: 5px 0;
+}
+
+.home .home-content .text-3 span {
+    color: rgb(44, 189, 238);
+    font-weight: 500;
 }
