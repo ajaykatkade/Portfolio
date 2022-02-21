@@ -25,9 +25,21 @@
     transition: all 0.3s ease;
 }
 
+
+/* menu btn sykying */
+
+.menu-btn {
+    /* padding: 13px; */
+    color: white;
+    cursor: pointer;
+    font-size: 23px;
+    align-self: center;
+    display: none;
+}
+
 .navbar.newnav {
     /* height: 60px; */
-    padding: 15px 0;
+    padding-top: 8px;
     background: rgb(44, 189, 238);
 }
 
@@ -109,4 +121,33 @@
 .home .home-content .text-3 span {
     color: rgb(44, 189, 238);
     font-weight: 500;
+}
+
+
+/* Responsive media Querey */
+
+@media (max-width:947px) {
+    .max-width {
+        padding: 0 40px;
+    }
+    .menu-btn {
+        display: block;
+        z-index: 999;
+    }
+    .navbar .menu {
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        left: 0;
+        right: 0;
+        background: black;
+        padding-top: 80px;
+        text-align: center;
+    }
+    .navbar .menu li {
+        display: block;
+    }
+    .navbar .menu li a {
+        display: inline-block;
+    }
 }
