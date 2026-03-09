@@ -9,29 +9,41 @@
 
     <link rel='stylesheet' href="style.css">
 
+    <!-- Adding Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    
     <!-- Adding font Awesome -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    
     <!-- Adding jquery  -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Typing animation script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    
+    <!-- Scroll Reveal script -->
+    <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 
 <body>
+    <!-- Scroll Up Button -->
+    <div class="scroll-up-btn">
+        <i class="fas fa-angle-up"></i>
+    </div>
+
     <!-- navBar content -->
     <nav class="navbar">
         <div class="max-width">
             <div class="logo"><a href="#">Portfo<span>lio.</span></a></div>
             <ul class="menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Skills</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Contact</a></li>
-                <!-- <li><a href="#"></a></li> -->
+                <li><a href="#home" class="menu-btn">Home</a></li>
+                <li><a href="#about" class="menu-btn">About</a></li>
+                <li><a href="#skills" class="menu-btn">Skills</a></li>
+                <li><a href="#projects" class="menu-btn">Projects</a></li>
+                <li><a href="#contact" class="menu-btn">Contact</a></li>
             </ul>
             <div class="menu-btn">
-                <i class="fa fa-bars"></i>
-
+                <i class="fas fa-bars"></i>
             </div>
         </div>
     </nav>
@@ -40,25 +52,184 @@
     <section class="home" id="home">
         <div class="max-width">
             <div class="home-content">
-                <div class="text-1">
-                    Hello, My Name Is
+                <div class="text-1">Hello, My Name Is</div>
+                <div class="text-2">Ajay Katkade</div>
+                <div class="text-3">And I'm a <span class="typing"></span></div>
+                <a href="#contact" class="hire-btn">Hire Me</a>
+            </div>
+        </div>
+        <div class="glowing-orb"></div>
+    </section>
+
+    <!-- About section start -->
+    <section class="about section" id="about">
+        <div class="max-width">
+            <h2 class="title">About me</h2>
+            <div class="about-content diff-layout">
+                <div class="column left">
+                    <img src="profile.jpg" alt="Ajay Katkade" class="profile-pic">
                 </div>
-                <div class="text-2">
-                    Ajay Katkade
-                </div>
-                <div class="text-3">
-                    And I'm a <span>Programmer</span>
+                <div class="column right">
+                    <div class="text">I'm Ajay and I'm a <span class="typing-2"></span></div>
+                    <p>Results-driven Google Cloud DevOps Engineer with over 4 years of experience architecting and automating scalable GCP solutions. Proven expertise in reducing deployment times and improving system reliability using Terraform, Cloud Run, Google Kubernetes Engine, Cloud Build, and CI/CD pipelines. Passionate about leveraging DevOps best practices to enhance infrastructure performance and security.</p>
+                    <a href="#" class="cv-btn">Download CV</a>
                 </div>
             </div>
         </div>
-
     </section>
-    <div>
-        <p>
-            test
-        
-        </p>
-    </div>
+
+    <!-- Skills section start -->
+    <section class="skills section glass-bg" id="skills">
+        <div class="max-width">
+            <h2 class="title">My skills</h2>
+            <div class="skills-content diff-layout">
+                <div class="column left">
+                    <div class="text">My technical skills & expertise.</div>
+                    <p>Over the past 4 years, I have honed my expertise across a diverse cloud and DevOps tech stack. I emphasize writing scalable Infrastructure as Code (IaC) and building robust CI/CD pipelines. From crafting dynamic scaling strategies with GKE and Cloud Run to optimizing deployment workflows, my goal is to deliver highly reliable and secure cloud infrastructure.</p>
+                    <a href="#projects" class="skills-btn">See Projects</a>
+                </div>
+                <div class="column right">
+                    <!-- Skill Bars -->
+                    <div class="bars">
+                        <div class="info">
+                            <span>Google Cloud Platform (GCP)</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="line html"><div class="progress" style="width: 95%;"></div></div>
+                    </div>
+                    <div class="bars">
+                        <div class="info">
+                            <span>IaC (Terraform)</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="line js"><div class="progress" style="width: 90%;"></div></div>
+                    </div>
+                    <div class="bars">
+                        <div class="info">
+                            <span>Docker & Kubernetes</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="line react"><div class="progress" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="bars">
+                        <div class="info">
+                            <span>CI/CD (Jenkins, GitHub Actions, Cloud Build)</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="line node"><div class="progress" style="width: 85%;"></div></div>
+                    </div>
+                    <div class="bars">
+                        <div class="info">
+                            <span>Scripting (Python, Bash)</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="line db"><div class="progress" style="width: 80%;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects section start -->
+    <section class="projects section" id="projects">
+        <div class="max-width">
+            <h2 class="title">Experience & Projects</h2>
+            <div class="carousel projects-content diff-layout">
+                <div class="card project-card">
+                    <div class="box">
+                        <i class="fas fa-briefcase"></i>
+                        <div class="text">Infosys</div>
+                        <p><b>Senior Associate Consultant</b><br>Handling troubleshooting for 100+ premium clients on GCP PAAS products (Cloud Run, GKE, Cloud Build). Improved customer satisfaction by over 90%.</p>
+                        <a href="#" class="project-link">09/2022 - Present <i class="fas fa-calendar-alt"></i></a>
+                    </div>
+                </div>
+                <div class="card project-card">
+                    <div class="box">
+                        <i class="fas fa-server"></i>
+                        <div class="text">Capgemini</div>
+                        <p><b>Software Engineer</b><br>Collaborated on 10+ projects for HSBC involving GKE and Terraform. Built CI/CD pipelines, reducing deployment time by 25%.</p>
+                        <a href="#" class="project-link">08/2021 - 09/2022 <i class="fas fa-calendar-alt"></i></a>
+                    </div>
+                </div>
+                <div class="card project-card">
+                    <div class="box">
+                        <i class="fas fa-cloud"></i>
+                        <div class="text">GCP Automations</div>
+                        <p><b>Automation Projects</b><br>Developed IaC framework using Terraform, designed microservices architecture on GKE, and integrated Istio service mesh.</p>
+                        <a href="https://github.com/ajaykatkade" class="project-link" target="_blank">View GitHub <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact section start -->
+    <section class="contact section glass-bg" id="contact">
+        <div class="max-width">
+            <h2 class="title">Contact me</h2>
+            <div class="contact-content diff-layout">
+                <div class="column left">
+                    <div class="text">Get in Touch</div>
+                    <p>Whether you have a question, a project proposal, or just want to say hi, my inbox is always open. I'll try my best to get back to you!</p>
+                    <div class="icons">
+                        <div class="row">
+                            <i class="fas fa-user"></i>
+                            <div class="info">
+                                <div class="head">Name</div>
+                                <div class="sub-title">Ajay Katkade</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="info">
+                                <div class="head">Address</div>
+                                <div class="sub-title">Pune, India</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <i class="fas fa-envelope"></i>
+                            <div class="info">
+                                <div class="head">Email</div>
+                                <div class="sub-title">ajay.katkade.official@gmail.com</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="column right">
+                    <div class="text">Message me</div>
+                    <form action="#">
+                        <div class="fields">
+                            <div class="field name">
+                                <input type="text" placeholder="Name" required>
+                            </div>
+                            <div class="field email">
+                                <input type="email" placeholder="Email" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <input type="text" placeholder="Subject" required>
+                        </div>
+                        <div class="field textarea">
+                            <textarea cols="30" rows="10" placeholder="Message.." required></textarea>
+                        </div>
+                        <div class="button-area">
+                            <button type="submit">Send message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <span>Created By <a href="#">Ajay Katkade</a> | <span class="far fa-copyright"></span> 2026 All rights reserved.</span>
+    </footer>
 
     <script src="script.js"></script>
 </body>
