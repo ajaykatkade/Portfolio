@@ -5,231 +5,554 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Ajay's Portfolio</title>
+    <title>Ajay Katkade — Cloud Console</title>
+    <meta name="description" content="Portfolio of Ajay Katkade, Google Cloud DevOps Engineer — presented as a GCP-style admin dashboard.">
 
     <link rel='stylesheet' href="style.css">
 
-    <!-- Adding Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- Adding font Awesome -->
+    <!-- Google Fonts: Google Sans + Roboto Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    
-    <!-- Adding jquery  -->
+
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
-    <!-- Typing animation script -->
+
+    <!-- Typed.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
-    
-    <!-- Scroll Reveal script -->
-    <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 
 <body>
-    <!-- Scroll Up Button -->
-    <div class="scroll-up-btn">
-        <i class="fas fa-angle-up"></i>
-    </div>
-
-    <!-- navBar content -->
-    <nav class="navbar">
-        <div class="max-width">
-            <div class="logo"><a href="#">Portfo<span>lio.</span></a></div>
-            <ul class="menu">
-                <li><a href="#home" class="menu-btn">Home</a></li>
-                <li><a href="#about" class="menu-btn">About</a></li>
-                <li><a href="#skills" class="menu-btn">Skills</a></li>
-                <li><a href="#projects" class="menu-btn">Projects</a></li>
-                <li><a href="#contact" class="menu-btn">Contact</a></li>
-            </ul>
-            <div class="menu-btn">
-                <i class="fas fa-bars"></i>
+    <!-- Top Bar (GCP-style) -->
+    <header class="topbar">
+        <div class="topbar-left">
+            <button class="hamburger" id="sidebarToggle">
+                <span class="material-icons-outlined">menu</span>
+            </button>
+            <div class="console-logo">
+                <span class="logo-icon">
+                    <span class="material-icons-outlined">cloud</span>
+                </span>
+                <span class="logo-text">Ajay's Cloud Console</span>
             </div>
+        </div>
+        <div class="topbar-center">
+            <div class="search-bar">
+                <span class="material-icons-outlined">search</span>
+                <input type="text" placeholder="Search resources, skills, or projects..." id="searchInput">
+            </div>
+        </div>
+        <div class="topbar-right">
+            <button class="topbar-icon-btn" title="Notifications">
+                <span class="material-icons-outlined">notifications</span>
+                <span class="notification-badge">3</span>
+            </button>
+            <button class="topbar-icon-btn" title="Terminal">
+                <span class="material-icons-outlined">terminal</span>
+            </button>
+            <div class="avatar-btn" title="Ajay Katkade">
+                <img src="profile.jpg" alt="Ajay Katkade">
+            </div>
+        </div>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-label">OVERVIEW</div>
+            <a href="#dashboard" class="sidebar-item active" data-section="dashboard">
+                <span class="material-icons-outlined">dashboard</span>
+                <span class="sidebar-item-text">Dashboard</span>
+            </a>
+            <a href="#about" class="sidebar-item" data-section="about">
+                <span class="material-icons-outlined">person</span>
+                <span class="sidebar-item-text">About</span>
+            </a>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-label">COMPUTE</div>
+            <a href="#skills" class="sidebar-item" data-section="skills">
+                <span class="material-icons-outlined">memory</span>
+                <span class="sidebar-item-text">Skills Engine</span>
+            </a>
+            <a href="#projects" class="sidebar-item" data-section="projects">
+                <span class="material-icons-outlined">dns</span>
+                <span class="sidebar-item-text">Deployments</span>
+            </a>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-label">NETWORKING</div>
+            <a href="#contact" class="sidebar-item" data-section="contact">
+                <span class="material-icons-outlined">mail</span>
+                <span class="sidebar-item-text">Contact API</span>
+            </a>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-label">TOOLS</div>
+            <a href="#" class="sidebar-item" onclick="window.open('https://github.com/ajaykatkade','_blank')">
+                <span class="fab fa-github sidebar-fa-icon"></span>
+                <span class="sidebar-item-text">Source Repos</span>
+            </a>
+            <a href="#" class="sidebar-item" onclick="window.open('https://linkedin.com','_blank')">
+                <span class="fab fa-linkedin sidebar-fa-icon"></span>
+                <span class="sidebar-item-text">Network Hub</span>
+            </a>
         </div>
     </nav>
 
-    <!-- Home section start -->
-    <section class="home" id="home">
-        <div class="max-width">
-            <div class="home-content">
-                <div class="text-1">Hello, My Name Is</div>
-                <div class="text-2">Ajay Katkade</div>
-                <div class="text-3">And I'm a <span class="typing"></span></div>
-                <a href="#contact" class="hire-btn">Hire Me</a>
-            </div>
-        </div>
-        <div class="glowing-orb"></div>
-    </section>
+    <!-- Main Content Area -->
+    <main class="main-content">
 
-    <!-- About section start -->
-    <section class="about section" id="about">
-        <div class="max-width">
-            <h2 class="title">About me</h2>
-            <div class="about-content diff-layout">
-                <div class="column left">
-                    <img src="profile.jpg" alt="Ajay Katkade" class="profile-pic">
-                </div>
-                <div class="column right">
-                    <div class="text">I'm Ajay and I'm a <span class="typing-2"></span></div>
-                    <p>Results-driven Google Cloud DevOps Engineer with over 4 years of experience architecting and automating scalable GCP solutions. Proven expertise in reducing deployment times and improving system reliability using Terraform, Cloud Run, Google Kubernetes Engine, Cloud Build, and CI/CD pipelines. Passionate about leveraging DevOps best practices to enhance infrastructure performance and security.</p>
-                    <a href="#" class="cv-btn">Download CV</a>
+        <!-- Dashboard Section -->
+        <section class="content-section active" id="dashboard">
+            <div class="section-header">
+                <h1>Dashboard</h1>
+                <div class="breadcrumb">
+                    <span class="material-icons-outlined">home</span>
+                    <span>Console</span>
+                    <span class="material-icons-outlined">chevron_right</span>
+                    <span>Dashboard</span>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Skills section start -->
-    <section class="skills section glass-bg" id="skills">
-        <div class="max-width">
-            <h2 class="title">My skills</h2>
-            <div class="skills-content diff-layout">
-                <div class="column left">
-                    <div class="text">My technical skills & expertise.</div>
-                    <p>Over the past 4 years, I have honed my expertise across a diverse cloud and DevOps tech stack. I emphasize writing scalable Infrastructure as Code (IaC) and building robust CI/CD pipelines. From crafting dynamic scaling strategies with GKE and Cloud Run to optimizing deployment workflows, my goal is to deliver highly reliable and secure cloud infrastructure.</p>
-                    <a href="#projects" class="skills-btn">See Projects</a>
+            <!-- Welcome Banner -->
+            <div class="welcome-banner">
+                <div class="welcome-text">
+                    <div class="welcome-greeting">Welcome back,</div>
+                    <h2 class="welcome-name">Ajay Katkade</h2>
+                    <p class="welcome-role">I'm a <span class="typing"></span></p>
                 </div>
-                <div class="column right">
-                    <!-- Skill Bars -->
-                    <div class="bars">
-                        <div class="info">
-                            <span>Google Cloud Platform (GCP)</span>
-                            <span>95%</span>
-                        </div>
-                        <div class="line html"><div class="progress" style="width: 95%;"></div></div>
+                <div class="welcome-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">4+</span>
+                        <span class="stat-label">Years Experience</span>
                     </div>
-                    <div class="bars">
-                        <div class="info">
-                            <span>IaC (Terraform)</span>
-                            <span>90%</span>
-                        </div>
-                        <div class="line js"><div class="progress" style="width: 90%;"></div></div>
+                    <div class="stat-card">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Clients Managed</span>
                     </div>
-                    <div class="bars">
-                        <div class="info">
-                            <span>Docker & Kubernetes</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="line react"><div class="progress" style="width: 85%;"></div></div>
+                    <div class="stat-card">
+                        <span class="stat-number">90%</span>
+                        <span class="stat-label">Satisfaction</span>
                     </div>
-                    <div class="bars">
-                        <div class="info">
-                            <span>CI/CD (Jenkins, GitHub Actions, Cloud Build)</span>
-                            <span>85%</span>
-                        </div>
-                        <div class="line node"><div class="progress" style="width: 85%;"></div></div>
-                    </div>
-                    <div class="bars">
-                        <div class="info">
-                            <span>Scripting (Python, Bash)</span>
-                            <span>80%</span>
-                        </div>
-                        <div class="line db"><div class="progress" style="width: 80%;"></div></div>
+                    <div class="stat-card">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Projects Deployed</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Projects section start -->
-    <section class="projects section" id="projects">
-        <div class="max-width">
-            <h2 class="title">Experience & Projects</h2>
-            <div class="carousel projects-content diff-layout">
-                <div class="card project-card">
-                    <div class="box">
-                        <i class="fas fa-briefcase"></i>
-                        <div class="text">Infosys</div>
-                        <p><b>Senior Associate Consultant</b><br>Handling troubleshooting for 100+ premium clients on GCP PAAS products (Cloud Run, GKE, Cloud Build). Improved customer satisfaction by over 90%.</p>
-                        <a href="#" class="project-link">09/2022 - Present <i class="fas fa-calendar-alt"></i></a>
+            <!-- System Status Cards -->
+            <div class="status-grid">
+                <div class="status-card">
+                    <div class="status-card-header">
+                        <span class="material-icons-outlined">cloud_done</span>
+                        <span class="status-title">GCP Services</span>
                     </div>
-                </div>
-                <div class="card project-card">
-                    <div class="box">
-                        <i class="fas fa-server"></i>
-                        <div class="text">Capgemini</div>
-                        <p><b>Software Engineer</b><br>Collaborated on 10+ projects for HSBC involving GKE and Terraform. Built CI/CD pipelines, reducing deployment time by 25%.</p>
-                        <a href="#" class="project-link">08/2021 - 09/2022 <i class="fas fa-calendar-alt"></i></a>
+                    <div class="status-indicator online">
+                        <span class="status-dot"></span>
+                        All systems operational
                     </div>
+                    <div class="status-meta">Cloud Run • GKE • Cloud Build</div>
                 </div>
-                <div class="card project-card">
-                    <div class="box">
-                        <i class="fas fa-cloud"></i>
-                        <div class="text">GCP Automations</div>
-                        <p><b>Automation Projects</b><br>Developed IaC framework using Terraform, designed microservices architecture on GKE, and integrated Istio service mesh.</p>
-                        <a href="https://github.com/ajaykatkade" class="project-link" target="_blank">View GitHub <i class="fas fa-arrow-right"></i></a>
+                <div class="status-card">
+                    <div class="status-card-header">
+                        <span class="material-icons-outlined">security</span>
+                        <span class="status-title">Infrastructure</span>
+                    </div>
+                    <div class="status-indicator online">
+                        <span class="status-dot"></span>
+                        Terraform synced
+                    </div>
+                    <div class="status-meta">IaC • Monitoring • Logging</div>
+                </div>
+                <div class="status-card">
+                    <div class="status-card-header">
+                        <span class="material-icons-outlined">speed</span>
+                        <span class="status-title">CI/CD Pipeline</span>
+                    </div>
+                    <div class="status-indicator online">
+                        <span class="status-dot"></span>
+                        Ready to deploy
+                    </div>
+                    <div class="status-meta">Jenkins • GitHub Actions • Cloud Build</div>
+                </div>
+            </div>
+
+            <!-- Project Logs Feed -->
+            <div class="logs-panel">
+                <div class="panel-header">
+                    <h3><span class="material-icons-outlined">receipt_long</span> Recent Deployment Logs</h3>
+                    <span class="panel-badge">Live</span>
+                </div>
+                <div class="logs-feed">
+                    <div class="log-entry">
+                        <span class="log-time">2026-03-21 10:32:15</span>
+                        <span class="log-level info">INFO</span>
+                        <span class="log-message">Deployed <strong>portfolio-v3.0</strong> to Cloud Run — vintage scrapbook theme applied</span>
+                    </div>
+                    <div class="log-entry">
+                        <span class="log-time">2026-03-20 14:18:03</span>
+                        <span class="log-level success">SUCCESS</span>
+                        <span class="log-message">Terraform apply complete — 12 resources updated in <strong>us-central1</strong></span>
+                    </div>
+                    <div class="log-entry">
+                        <span class="log-time">2026-03-19 09:45:22</span>
+                        <span class="log-level info">INFO</span>
+                        <span class="log-message">GKE cluster <strong>prod-cluster-01</strong> scaled to 5 nodes — auto-scaling enabled</span>
+                    </div>
+                    <div class="log-entry">
+                        <span class="log-time">2026-03-18 16:08:41</span>
+                        <span class="log-level warning">WARNING</span>
+                        <span class="log-message">High memory usage detected on <strong>api-gateway</strong> — Istio sidecar optimized</span>
+                    </div>
+                    <div class="log-entry">
+                        <span class="log-time">2026-03-17 11:22:30</span>
+                        <span class="log-level success">SUCCESS</span>
+                        <span class="log-message">CI/CD pipeline migrated to <strong>GitHub Actions</strong> — build time reduced by 40%</span>
+                    </div>
+                    <div class="log-entry">
+                        <span class="log-time">2026-03-15 08:55:12</span>
+                        <span class="log-level info">INFO</span>
+                        <span class="log-message">Docker image <strong>microservice-auth:2.1</strong> pushed to Artifact Registry</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact section start -->
-    <section class="contact section glass-bg" id="contact">
-        <div class="max-width">
-            <h2 class="title">Contact me</h2>
-            <div class="contact-content diff-layout">
-                <div class="column left">
-                    <div class="text">Get in Touch</div>
-                    <p>Whether you have a question, a project proposal, or just want to say hi, my inbox is always open. I'll try my best to get back to you!</p>
-                    <div class="icons">
-                        <div class="row">
-                            <i class="fas fa-user"></i>
-                            <div class="info">
-                                <div class="head">Name</div>
-                                <div class="sub-title">Ajay Katkade</div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div class="info">
-                                <div class="head">Address</div>
-                                <div class="sub-title">Pune, India</div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <i class="fas fa-envelope"></i>
-                            <div class="info">
-                                <div class="head">Email</div>
-                                <div class="sub-title">ajay.katkade.official@gmail.com</div>
-                            </div>
-                        </div>
+        <!-- About Section -->
+        <section class="content-section" id="about">
+            <div class="section-header">
+                <h1>About</h1>
+                <div class="breadcrumb">
+                    <span class="material-icons-outlined">home</span>
+                    <span>Console</span>
+                    <span class="material-icons-outlined">chevron_right</span>
+                    <span>About</span>
+                </div>
+            </div>
+
+            <div class="resource-detail-card">
+                <div class="detail-header">
+                    <div class="detail-avatar">
+                        <img src="profile.jpg" alt="Ajay Katkade">
                     </div>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    <div class="detail-info">
+                        <h2>Ajay Katkade</h2>
+                        <span class="detail-subtitle">I'm a <span class="typing-2"></span></span>
+                        <div class="detail-badges">
+                            <span class="badge blue">GCP Certified</span>
+                            <span class="badge green">Available</span>
+                            <span class="badge grey">Pune, India</span>
+                        </div>
                     </div>
                 </div>
-                <div class="column right">
-                    <div class="text">Message me</div>
-                    <form action="#">
-                        <div class="fields">
-                            <div class="field name">
-                                <input type="text" placeholder="Name" required>
+                <div class="detail-body">
+                    <div class="detail-section">
+                        <h4>Description</h4>
+                        <p>Results-driven Google Cloud DevOps Engineer with over 4 years of experience architecting and automating scalable GCP solutions. Proven expertise in reducing deployment times and improving system reliability using Terraform, Cloud Run, Google Kubernetes Engine, Cloud Build, and CI/CD pipelines. Passionate about leveraging DevOps best practices to enhance infrastructure performance and security.</p>
+                    </div>
+                    <div class="detail-section">
+                        <h4>Labels</h4>
+                        <div class="label-grid">
+                            <div class="label-item"><span class="label-key">role:</span> Senior Associate Consultant</div>
+                            <div class="label-item"><span class="label-key">org:</span> Infosys</div>
+                            <div class="label-item"><span class="label-key">location:</span> Pune, India</div>
+                            <div class="label-item"><span class="label-key">email:</span> ajay.katkade.official@gmail.com</div>
+                            <div class="label-item"><span class="label-key">experience:</span> 4+ years</div>
+                            <div class="label-item"><span class="label-key">specialization:</span> Cloud DevOps</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-actions">
+                    <button class="gcp-btn primary"><span class="material-icons-outlined">download</span> Download CV</button>
+                    <button class="gcp-btn secondary" onclick="document.querySelector('[data-section=contact]').click()"><span class="material-icons-outlined">mail</span> Contact</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="content-section" id="skills">
+            <div class="section-header">
+                <h1>Skills Engine</h1>
+                <div class="breadcrumb">
+                    <span class="material-icons-outlined">home</span>
+                    <span>Console</span>
+                    <span class="material-icons-outlined">chevron_right</span>
+                    <span>Compute</span>
+                    <span class="material-icons-outlined">chevron_right</span>
+                    <span>Skills Engine</span>
+                </div>
+            </div>
+
+            <div class="panel-card">
+                <div class="panel-header">
+                    <h3><span class="material-icons-outlined">analytics</span> Resource Utilization</h3>
+                </div>
+                <p class="panel-description">Over the past 4 years, I have honed my expertise across a diverse cloud and DevOps tech stack. I emphasize writing scalable Infrastructure as Code (IaC) and building robust CI/CD pipelines.</p>
+
+                <div class="skills-grid">
+                    <div class="skill-row">
+                        <div class="skill-info">
+                            <span class="material-icons-outlined">cloud</span>
+                            <span class="skill-name">Google Cloud Platform (GCP)</span>
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 95%;">
+                                <span class="skill-percent">95%</span>
                             </div>
-                            <div class="field email">
-                                <input type="email" placeholder="Email" required>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-info">
+                            <span class="material-icons-outlined">code</span>
+                            <span class="skill-name">IaC (Terraform)</span>
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 90%;">
+                                <span class="skill-percent">90%</span>
                             </div>
                         </div>
-                        <div class="field">
-                            <input type="text" placeholder="Subject" required>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-info">
+                            <span class="material-icons-outlined">view_in_ar</span>
+                            <span class="skill-name">Docker & Kubernetes</span>
                         </div>
-                        <div class="field textarea">
-                            <textarea cols="30" rows="10" placeholder="Message.." required></textarea>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 85%;">
+                                <span class="skill-percent">85%</span>
+                            </div>
                         </div>
-                        <div class="button-area">
-                            <button type="submit">Send message</button>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-info">
+                            <span class="material-icons-outlined">sync</span>
+                            <span class="skill-name">CI/CD Pipelines</span>
                         </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 85%;">
+                                <span class="skill-percent">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-info">
+                            <span class="material-icons-outlined">terminal</span>
+                            <span class="skill-name">Scripting (Python, Bash)</span>
+                        </div>
+                        <div class="skill-bar-container">
+                            <div class="skill-bar" style="width: 80%;">
+                                <span class="skill-percent">80%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects / Deployments Section -->
+        <section class="content-section" id="projects">
+            <div class="section-header">
+                <h1>Deployments</h1>
+                <div class="breadcrumb">
+                    <span class="material-icons-outlined">home</span>
+                    <span>Console</span>
+                    <span class="material-icons-outlined">chevron_right</span>
+                    <span>Compute</span>
+                    <span class="material-icons-outlined">chevron_right</span>
+                    <span>Deployments</span>
+                </div>
+            </div>
+
+            <div class="resource-table-card">
+                <div class="panel-header">
+                    <h3><span class="material-icons-outlined">dns</span> Active Resources</h3>
+                    <div class="table-actions">
+                        <button class="gcp-btn icon-btn"><span class="material-icons-outlined">refresh</span></button>
+                        <button class="gcp-btn icon-btn"><span class="material-icons-outlined">filter_list</span></button>
+                    </div>
+                </div>
+                <div class="resource-cards-grid">
+                    <!-- Card 1: Infosys -->
+                    <div class="resource-card">
+                        <div class="resource-card-header">
+                            <span class="material-icons-outlined resource-icon">business</span>
+                            <div>
+                                <div class="resource-name">Infosys</div>
+                                <div class="resource-type">Senior Associate Consultant</div>
+                            </div>
+                            <div class="resource-status active">
+                                <span class="status-dot"></span> Active
+                            </div>
+                        </div>
+                        <div class="resource-card-body">
+                            <p>Handling troubleshooting for 100+ premium clients on GCP PAAS products (Cloud Run, GKE, Cloud Build). Improved customer satisfaction by over 90%.</p>
+                        </div>
+                        <div class="resource-card-footer">
+                            <div class="resource-meta">
+                                <span class="material-icons-outlined">calendar_today</span> 09/2022 — Present
+                            </div>
+                            <div class="resource-tags">
+                                <span class="tag">GCP</span>
+                                <span class="tag">Cloud Run</span>
+                                <span class="tag">GKE</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Capgemini -->
+                    <div class="resource-card">
+                        <div class="resource-card-header">
+                            <span class="material-icons-outlined resource-icon">apartment</span>
+                            <div>
+                                <div class="resource-name">Capgemini</div>
+                                <div class="resource-type">Software Engineer</div>
+                            </div>
+                            <div class="resource-status completed">
+                                <span class="status-dot"></span> Completed
+                            </div>
+                        </div>
+                        <div class="resource-card-body">
+                            <p>Collaborated on 10+ projects for HSBC involving GKE and Terraform. Built CI/CD pipelines, reducing deployment time by 25%.</p>
+                        </div>
+                        <div class="resource-card-footer">
+                            <div class="resource-meta">
+                                <span class="material-icons-outlined">calendar_today</span> 08/2021 — 09/2022
+                            </div>
+                            <div class="resource-tags">
+                                <span class="tag">Terraform</span>
+                                <span class="tag">GKE</span>
+                                <span class="tag">CI/CD</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: GCP Automations -->
+                    <div class="resource-card">
+                        <div class="resource-card-header">
+                            <span class="material-icons-outlined resource-icon">cloud_circle</span>
+                            <div>
+                                <div class="resource-name">GCP Automations</div>
+                                <div class="resource-type">Personal Projects</div>
+                            </div>
+                            <div class="resource-status active">
+                                <span class="status-dot"></span> Active
+                            </div>
+                        </div>
+                        <div class="resource-card-body">
+                            <p>Developed IaC framework using Terraform, designed microservices architecture on GKE, and integrated Istio service mesh.</p>
+                        </div>
+                        <div class="resource-card-footer">
+                            <div class="resource-meta">
+                                <a href="https://github.com/ajaykatkade" target="_blank" class="resource-link">
+                                    <span class="material-icons-outlined">open_in_new</span> View on GitHub
+                                </a>
+                            </div>
+                            <div class="resource-tags">
+                                <span class="tag">Terraform</span>
+                                <span class="tag">Istio</span>
+                                <span class="tag">Docker</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="content-section" id="contact">
+            <div class="section-header">
+                <h1>Contact API</h1>
+                <div class="breadcrumb">
+                    <span class="material-icons-outlined">home</span>
+                    <span>Console</span>
+                    <span class="material-icons-outlined">chevron_right</span>
+                    <span>Networking</span>
+                    <span class="material-icons-outlined">chevron_right</span>
+                    <span>Contact API</span>
+                </div>
+            </div>
+
+            <div class="contact-grid">
+                <div class="panel-card">
+                    <div class="panel-header">
+                        <h3><span class="material-icons-outlined">info</span> Endpoint Details</h3>
+                    </div>
+                    <div class="endpoint-list">
+                        <div class="endpoint-row">
+                            <span class="material-icons-outlined">person</span>
+                            <div>
+                                <div class="endpoint-key">Name</div>
+                                <div class="endpoint-value">Ajay Katkade</div>
+                            </div>
+                        </div>
+                        <div class="endpoint-row">
+                            <span class="material-icons-outlined">location_on</span>
+                            <div>
+                                <div class="endpoint-key">Location</div>
+                                <div class="endpoint-value">Pune, India</div>
+                            </div>
+                        </div>
+                        <div class="endpoint-row">
+                            <span class="material-icons-outlined">mail</span>
+                            <div>
+                                <div class="endpoint-key">Email</div>
+                                <div class="endpoint-value">ajay.katkade.official@gmail.com</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/ajaykatkade" target="_blank" class="social-link-btn">
+                            <span class="fab fa-github"></span> GitHub
+                        </a>
+                        <a href="#" class="social-link-btn">
+                            <span class="fab fa-linkedin-in"></span> LinkedIn
+                        </a>
+                        <a href="#" class="social-link-btn">
+                            <span class="fab fa-twitter"></span> Twitter
+                        </a>
+                    </div>
+                </div>
+
+                <div class="panel-card">
+                    <div class="panel-header">
+                        <h3><span class="material-icons-outlined">send</span> Send Request</h3>
+                        <span class="method-badge">POST</span>
+                    </div>
+                    <form action="#" class="api-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-name">name <span class="required">*</span></label>
+                                <input type="text" id="contact-name" placeholder="string" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">email <span class="required">*</span></label>
+                                <input type="email" id="contact-email" placeholder="string" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">subject <span class="required">*</span></label>
+                            <input type="text" id="contact-subject" placeholder="string" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">body <span class="required">*</span></label>
+                            <textarea id="contact-message" rows="5" placeholder="string" required></textarea>
+                        </div>
+                        <button type="submit" class="gcp-btn primary">
+                            <span class="material-icons-outlined">send</span> Execute
+                        </button>
                     </form>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <span>Created By <a href="#">Ajay Katkade</a> | <span class="far fa-copyright"></span> 2026 All rights reserved.</span>
-    </footer>
+    </main>
 
     <script src="script.js"></script>
 </body>

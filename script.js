@@ -1,62 +1,80 @@
 $(document).ready(function() {
-    // Scroll event for navbar and scroll-up button
-    $(window).scroll(function() {
-        if (this.scrollY > 20) {
-            $('.navbar').addClass("sticky");
-        } else {
-            $('.navbar').removeClass("sticky");
+
+    // ===== Sidebar Navigation =====
+    $('.sidebar-item[data-section]').on('click', function(e) {
+        e.preventDefault();
+        
+        // Update active sidebar item
+        $('.sidebar-item').removeClass('active');
+        $(this).addClass('active');
+        
+        // Switch content section
+        var sectionId = $(this).data('section');
+        $('.content-section').removeClass('active');
+        $('#' + sectionId).addClass('active');
+
+        // Close sidebar on mobile
+        if ($(window).width() <= 1024) {
+            $('#sidebar').removeClass('open');
         }
+    });
 
-        // Show/hide scroll up button
-        if (this.scrollY > 500) {
-            $('.scroll-up-btn').addClass("show");
+    // ===== Sidebar Toggle (hamburger) =====
+    $('#sidebarToggle').on('click', function() {
+        var sidebar = $('#sidebar');
+        if ($(window).width() <= 1024) {
+            sidebar.toggleClass('open');
         } else {
-            $('.scroll-up-btn').removeClass("show");
+            sidebar.toggleClass('collapsed');
         }
     });
 
-    // Slide-up script
-    $('.scroll-up-btn').click(function() {
-        $('html').animate({scrollTop: 0});
-        // Removing smooth scroll on slide-up button click
-        $('html').css("scrollBehavior", "auto");
-    });
-
-    $('.navbar .menu li a').click(function() {
-        // Applying again smooth scroll on menu items click
-        $('html').css("scrollBehavior", "smooth");
-    });
-
-    // Toggle menu/navbar script
-    $('.menu-btn').click(function() {
-        $('.navbar .menu').toggleClass("active");
-        $('.menu-btn i').toggleClass("active");
-    });
-
-    // Typing text animation script
+    // ===== Typing Animation =====
     var typed = new Typed(".typing", {
         strings: ["Cloud DevOps Engineer", "GCP Expert", "Infrastructure Coder", "Problem Solver"],
-        typeSpeed: 100,
-        backSpeed: 60,
+        typeSpeed: 80,
+        backSpeed: 50,
         loop: true
     });
 
     var typed2 = new Typed(".typing-2", {
         strings: ["Cloud DevOps Engineer", "GCP Expert", "Infrastructure Coder", "Problem Solver"],
-        typeSpeed: 100,
-        backSpeed: 60,
+        typeSpeed: 80,
+        backSpeed: 50,
         loop: true
     });
 
-    // Scroll Reveal Animations
-    const sr = ScrollReveal({
-        distance: '60px',
-        duration: 2500,
-        delay: 400,
-        reset: false // Set to true if you want animations to repeat on scroll up
+    // ===== Search Functionality (simple filter) =====
+    $('#searchInput').on('input', function() {
+        var query = $(this).val().toLowerCase();
+        if (query.length === 0) return;
+
+        // Simple: jump to section matching the query
+        var sections = {
+            'dashboard': ['dashboard', 'home', 'overview', 'welcome', 'stats'],
+            'about': ['about', 'bio', 'profile', 'resume', 'cv', 'who'],
+            'skills': ['skills', 'skill', 'terraform', 'gcp', 'docker', 'kubernetes', 'python', 'ci/cd', 'compute'],
+            'projects': ['projects', 'deployments', 'infosys', 'capgemini', 'experience', 'work', 'job'],
+            'contact': ['contact', 'email', 'message', 'mail', 'hire', 'network']
+        };
+
+        for (var section in sections) {
+            for (var i = 0; i < sections[section].length; i++) {
+                if (sections[section][i].includes(query)) {
+                    $('.sidebar-item').removeClass('active');
+                    $('[data-section="' + section + '"]').addClass('active');
+                    $('.content-section').removeClass('active');
+                    $('#' + section).addClass('active');
+                    return;
+                }
+            }
+        }
     });
 
-    sr.reveal('.home-content, .about-content .right, .skills-content .left', { delay: 200, origin: 'left' });
-    sr.reveal('.about-content .left, .skills-content .right, .contact-content .right', { delay: 200, origin: 'right' });
-    sr.reveal('.projects-content .card, .contact-content .left', { delay: 200, origin: 'bottom', interval: 200 });
+    // ===== Handle search on Enter =====
+    $('#searchInput').on('keypress', function(e) {
+        if (e.which === 13) {
+            $(this).trigger('input');
+        }
+    });
 });
